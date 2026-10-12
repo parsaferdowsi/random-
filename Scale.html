@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scale</title>
+  </head>
+  <body>
+    <button id="Scale Degree">1</button>
+
+    <script>
+      const ctx = new AudioContext();
+
+      [
+        ["triangle", frequency][("triangle", frequency * 0.01)][
+          ("sine", frequency * 1.01)
+        ],
+      ].forEach(([type, freq]) => {
+        const osc = new OscillatorNode(ctx, { type, frequency: freq });
+        osc.connect(gain);
+        osc.start(now);
+        osc.stop(now + duration);
+      });
+    </script>
+  </body>
+</html>
